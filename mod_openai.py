@@ -2,7 +2,7 @@
 
 from openai import OpenAI
 
-
+"""
 client = OpenAI(api_key="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")
 
 def converte_comentarios_em_nota():
@@ -17,8 +17,9 @@ def converte_comentarios_em_nota():
         temperature=1
     )
 
-    
+
     lista_notas.append[] = 
 
     return response
 
+"""
