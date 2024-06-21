@@ -2,9 +2,13 @@
 
 from openai import OpenAI
 
-"""
-client = OpenAI(api_key="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")
+with open("chave_tarefa_0506.txt", "r") as arquivo:
+    chave = arquivo.read()
 
+OpenAI.api_key = chave.strip()
+
+client = OpenAI(api_key = chave)
+"""
 def converte_comentarios_em_nota():
     lista_notas = []
 
@@ -21,5 +25,4 @@ def converte_comentarios_em_nota():
     lista_notas.append[] = 
 
     return response
-
 """
