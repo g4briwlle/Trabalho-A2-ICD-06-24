@@ -62,4 +62,4 @@ def pega_reviews():
     driver.quit()
     
     # Passa o dataset para o arquivo A2.xlsx
-    dataset.to_excel("A2.xlsx", index=False)
+    dataset.to_excel("A2.xlsx")
