@@ -3,9 +3,6 @@
 import os
 import openai
 from openai import OpenAI
-from dotenv import load_dotenv
-import pandas as pd
-
 
 def gpt_classifica(comment):
 
