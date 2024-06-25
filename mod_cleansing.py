@@ -13,8 +13,8 @@ def cleansing(a):
 
     for i in range(len(lista_de_reviews)):
         
-        # Substituir todas as ocorrências de "\'" por "'"
-        review = lista_de_reviews[i].replace("\'", "'")
+        # Substituir todas as ocorrências de "'" por ""
+        review = lista_de_reviews[i].replace("'", "")
         
         # Converter a string da review em uma lista de caracteres
         review = list(review)
