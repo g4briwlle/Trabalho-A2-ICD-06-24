@@ -8,7 +8,3 @@ pega_reviews()
 reviews = cleansing('A2.xlsx')
 
 insights(reviews)
-
-
-
-
