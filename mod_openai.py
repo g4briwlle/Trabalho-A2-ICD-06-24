@@ -4,12 +4,10 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import pandas as pd
 
-# Load environment variables from the .env file
-load_dotenv('chave.env')
+chave_1 = 'sk-proj-k7GLrgLcR00pS2dZE'
+chave_2 = '8BaT3BlbkFJQ8i6oF94z2L9m9NpcMAW'
 
-chave_ = input("Coloque sua chave API_KEY:")
-
-client = OpenAI(api_key= chave_)
+client = OpenAI(api_key= chave_1+chave_2)
 
 prompt = [{
         "role":"user", 
