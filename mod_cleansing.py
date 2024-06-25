@@ -1,3 +1,5 @@
+""" Limpeza dos dados e organização em lista """
+
 import pandas as pd
 
 def cleansing(a):
