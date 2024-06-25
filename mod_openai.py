@@ -1,13 +1,20 @@
 """ Geração de Insights Usando a API da OpenAI """
 
+import os
+import openai
 from openai import OpenAI
+from dotenv import load_dotenv
+import pandas as pd
 
-with open("chave_tarefa_0506.txt", "r") as arquivo:
-    chave = arquivo.read()
+"""
+load_dotenv()
 
-OpenAI.api_key = chave.strip()
+openai_api_key = os.getenv('OPENAI_API_KEY')
 
-client = OpenAI(api_key = chave)
+openai.api_key = openai_api_key
+
+dataset = pd.read_excel("A2.xlsx")
+"""
 """
 def converte_comentarios_em_nota():
     lista_notas = []
@@ -25,4 +32,11 @@ def converte_comentarios_em_nota():
     lista_notas.append[] = 
 
     return response
+
+"""
+"""
+def insights(lista):
+    
+
+>>>>>>> 484a7cc5aabdf687716554d8cfc3a25bc26a18ae
 """
