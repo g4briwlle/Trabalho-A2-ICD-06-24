@@ -7,4 +7,6 @@ pega_reviews()
 
 reviews = cleansing('A2.csv')
 
-# insights(reviews)
+respostas = [[gpt_classifica(review)] for review in reviews]
+
+print(respostas)
