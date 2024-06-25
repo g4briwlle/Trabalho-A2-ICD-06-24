@@ -5,7 +5,7 @@ import pandas as pd
 def cleansing(a):
     
     # Leitura do arquivo Excel especificado pelo argumento 'a'
-    reviews = pd.read_excel(a)
+    reviews = pd.read_csv(a)
 
     # Transformar cada linha em uma lista de strings e depois em uma lista única
     lista_de_reviews = reviews.apply(lambda row: ' '.join(map(str, row)), axis=1).tolist()

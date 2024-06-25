@@ -6,20 +6,18 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import pandas as pd
 
+client = OpenAI(api_key="")
+
+dataset = pd.read_csv("A2.csv")
+print(dataset)
+
 """
-load_dotenv()
+def converte_comentarios_em_nota(comentario):
 
-openai_api_key = os.getenv('OPENAI_API_KEY')
-
-openai.api_key = openai_api_key
-
-dataset = pd.read_excel("A2.xlsx")
-"""
-"""
-def converte_comentarios_em_nota():
-    lista_notas = []
-
-    prompt = [{"role": "user", "content": f""]
+    prompt = [{
+        "role": "user",
+        "content": "Resuma "
+            }]
 
     response = client.chat.completions.create(
         messages=prompt,
@@ -28,15 +26,7 @@ def converte_comentarios_em_nota():
         temperature=1
     )
 
+    Resposta_do_chat = response.choices[0].message.content
 
-    lista_notas.append[] = 
-
-    return response
-
-"""
-"""
 def insights(lista):
-    
-
->>>>>>> 484a7cc5aabdf687716554d8cfc3a25bc26a18ae
 """
