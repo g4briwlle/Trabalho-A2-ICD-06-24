@@ -3,24 +3,32 @@ import pandas as pd
 from mod_openai import *
 from mod_cleansing import *
 
-reviews = cleansing('A2.csv')
-respostas = [gpt_classifica(review) for review in reviews]
 
-sentimento = []
-propensao = []
-aspecto = []
+def exporta_reviews():
 
-for i in range(len(respostas)):
-    sentimento.append(respostas[i].split(",")[0])
-    propensao.append(respostas[i].split(",")[1])
-    aspecto.append(respostas[i].split(",")[2])
+    # Lendo todas as reviews que estão no arquivo csv
+    reviews = cleansing('A2.csv')
+    respostas = [gpt_classifica(review) for review in reviews]
 
-data = {
-    'Sentimento': sentimento,
-    'Propensão': propensao,
-    'Aspecto': aspecto
-}
+    sentimento = []
+    propensao = []
+    aspecto = []
 
-df = pd.DataFrame(data)
+    # Adicionando as análises do GPT às listas que contém as classificações do filme
+    for i in range(len(respostas)):
+        sentimento.append(respostas[i].split(",")[0])
+        propensao.append(respostas[i].split(",")[1])
+        aspecto.append(respostas[i].split(",")[2])
 
-df.to_csv('reviews_tratadas.csv', index=False)
+    # Colocando os dados em formato de dicionário
+    data = {
+        'Sentimento': sentimento,
+        'Propensão': propensao,
+        'Aspecto': aspecto
+    }
+
+    # Gerando um dataframe e um arquivo .xlsx com as reviews tratadas
+    df = pd.DataFrame(data)
+
+    df.to_excel('reviews_tratadas.xlsx', index=False)
+
