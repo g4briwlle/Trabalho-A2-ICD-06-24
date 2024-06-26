@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
 def pega_reviews():
     # Instituindo headers
     headers = {
@@ -29,17 +30,16 @@ def pega_reviews():
     # Solução: Loop para continuamente clicar no botão Load More, até que esse não exista mais
     while True:
         try:
-            # Replace ".ipl-load-more__button" with the appropriate CSS selector for the "Load More" button
             load_more_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, ".ipl-load-more__button"))
             )
             load_more_button.click()
-            # Wait for the new reviews to load
+            # Esperando mais reviews carregarem
             WebDriverWait(driver, 10).until(
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".lister-item-content"))
             )
-        except Exception as e:
-            print(f"Exception occurred: {e}")
+        except:
+            print("Todas as reviews já foram extraídas!")
             break
     
     # Organiza o html com BeautifulSoup
