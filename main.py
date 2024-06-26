@@ -4,4 +4,4 @@ import os
 
 pega_reviews()
 exporta_reviews()
-os.startfile("ExposiçãodeDados (2).xlsx")
+os.startfile("ExposiçãodeDados.xlsx")
