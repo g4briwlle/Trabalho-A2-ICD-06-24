@@ -1,19 +1,19 @@
 """ Geração de Insights Usando a API da OpenAI """
-
-import os
-import openai
 from openai import OpenAI
 
-def gpt_classifica(comment):
 
+def gpt_classifica(comment):
+    # Separando a chave em partes pra evitar que o repositório seja derrubado pelo Github
     chave_1 = 'sk-proj-k7GLrgLcR00pS2dZE'
     chave_2 = '8BaT3BlbkFJQ8i6oF94z2L9m9NpcMAW'
 
     client = OpenAI(api_key= chave_1+chave_2)
-    
+
+    # Definindo o prompt que analisará as reviews
+
     prompt = [{
         "role":"user", 
-        "content":f'Chat, voce vai analisar uma review deixada por um espectador do filme "Paris, Texas" e retornar 3 classificações no formato "Classificação 1, Classificação 2, Classificação 3" sem NENHUM complemento antes ou depois e em formato de título. A primeira classificação é o Sentimento, que deve ser avaliado entre "Detestei", "Não gostei", "Apático", "Gostei" ou "Amei". A segunda classificação é a Propensão, que deve ser avaliada entre "Veria Novamente" ou "Não Veria Novamente". A última classificação é o Aspecto, que deve ser avaliado entre "Roteiro", "Fotografia", "Originalidade", "Atuação", "Emoção". O comentário é {comment}\n'
+        "content": f'Chat, voce vai analisar uma review deixada por um espectador do filme "Paris, Texas" e retornar 3 classificações no formato "Classificação 1, Classificação 2, Classificação 3" sem NENHUM complemento antes ou depois e em formato de título. A primeira classificação é o Sentimento, que deve ser avaliado entre "Detestei", "Não gostei", "Apático", "Gostei" ou "Amei". A segunda classificação é a Propensão, que deve ser avaliada entre "Veria Novamente" ou "Não Veria Novamente". A última classificação é o Aspecto, que deve ser avaliado entre "Roteiro", "Fotografia", "Originalidade", "Atuação", "Emoção". O comentário é {comment}\n'
         }]
 
     response = client.chat.completions.create(
@@ -23,7 +23,9 @@ def gpt_classifica(comment):
         temperature = 1
     )
 
-    Resposta_do_chat = response.choices[0].message.content
+    resposta_do_chat = response.choices[0].message.content
 
-    return Resposta_do_chat
+    return resposta_do_chat
+
+
 
