@@ -13,7 +13,7 @@ def gpt_classifica(comment):
     
     prompt = [{
         "role":"user", 
-        "content":f'Você é um analista de review deixada por um espectador do filme Paris, Texas . Você precisa me retornar 3 classificações, nas categorias chamadas Sentimento, Propensão e Aspecto. Suas classificações serão retornadas sem pontuações ou complementos, respeitando a capitalização utilizada, separadas por vírgula e espaço somente, no modelo Classificação1, Classificação2, Classificação3. Categoria Sentimento: Classifique o sentimento que passa a "Review a ser analisada" entre as classificações Detestei, Não gostei, Apático, Gostei, Amei. Categoria Propensão: Classifique a propensão de ver o filme novamente de alguém que escreveu a "Review a ser analisada" entre as classificações Veria Novamente, Não Veria Novamente. Categoria Aspecto: Classifique o assunto principal da "Review a ser analisada" escolhendo uma das seguintes categorias: Roteiro, Fotografia, Originalidade, Atuação, Emoção. Review a ser analisada: {comment}\nCategory:'
+        "content":f'Chat, voce vai analisar uma review deixada por um espectador do filme "Paris, Texas" e retornar 3 classificações no formato "Classificação 1, Classificação 2, Classificação 3" sem NENHUM complemento antes ou depois e em formato de título. A primeira classificação é o Sentimento, que deve ser avaliado entre "Detestei", "Não gostei", "Apático", "Gostei" ou "Amei". A segunda classificação é a Propensão, que deve ser avaliada entre "Veria Novamente" ou "Não Veria Novamente". A última classificação é o Aspecto, que deve ser avaliado entre "Roteiro", "Fotografia", "Originalidade", "Atuação", "Emoção". O comentário é {comment}\n'
         }]
 
     response = client.chat.completions.create(
